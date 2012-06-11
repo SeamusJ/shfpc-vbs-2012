@@ -1,0 +1,43 @@
+%h1 Listing attendees
+
+%table
+  %tr
+    %th First name
+    %th Last name
+    %th Age
+    %th Gender
+    %th Parent first name
+    %th Parent last name
+    %th Parent email
+    %th Parent phone
+    %th Parent email
+    %th Parent address 1
+    %th Parent address 2
+    %th Parent city
+    %th Parent zip
+    %th
+    %th
+    %th
+
+  - @attendees.each do |attendee|
+    %tr
+      %td= attendee.first_name
+      %td= attendee.last_name
+      %td= attendee.age
+      %td= attendee.gender
+      %td= attendee.parent_first_name
+      %td= attendee.parent_last_name
+      %td= attendee.parent_email
+      %td= attendee.parent_phone
+      %td= attendee.parent_email
+      %td= attendee.parent_address_1
+      %td= attendee.parent_address_2
+      %td= attendee.parent_city
+      %td= attendee.parent_zip
+      %td= link_to 'Show', attendee
+      %td= link_to 'Edit', edit_attendee_path(attendee)
+      %td= link_to 'Destroy', attendee, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Attendee', new_attendee_path

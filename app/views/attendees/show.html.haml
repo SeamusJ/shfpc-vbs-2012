@@ -1,0 +1,45 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @attendee.first_name
+%p
+  %b Last name:
+  = @attendee.last_name
+%p
+  %b Age:
+  = @attendee.age
+%p
+  %b Gender:
+  = @attendee.gender
+%p
+  %b Parent first name:
+  = @attendee.parent_first_name
+%p
+  %b Parent last name:
+  = @attendee.parent_last_name
+%p
+  %b Parent email:
+  = @attendee.parent_email
+%p
+  %b Parent phone:
+  = @attendee.parent_phone
+%p
+  %b Parent email:
+  = @attendee.parent_email
+%p
+  %b Parent address 1:
+  = @attendee.parent_address_1
+%p
+  %b Parent address 2:
+  = @attendee.parent_address_2
+%p
+  %b Parent city:
+  = @attendee.parent_city
+%p
+  %b Parent zip:
+  = @attendee.parent_zip
+
+= link_to 'Edit', edit_attendee_path(@attendee)
+\|
+= link_to 'Back', attendees_path
