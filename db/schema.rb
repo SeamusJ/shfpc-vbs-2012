@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120611182807) do
+ActiveRecord::Schema.define(:version => 20120611195625) do
 
   create_table "attendees", :force => true do |t|
     t.string   "first_name"
@@ -28,6 +28,24 @@ ActiveRecord::Schema.define(:version => 20120611182807) do
     t.string   "parent_zip"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.string   "hashed_password"
+    t.string   "email"
+    t.string   "salt"
+    t.datetime "created_at"
   end
 
 end
