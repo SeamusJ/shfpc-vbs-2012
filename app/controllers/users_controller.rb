@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
 
@@ -19,7 +19,7 @@ class UserController < ApplicationController
     if request.post?
       if session[:user] = User.authenticate(params[:user][:login], params[:user][:password])
         flash[:message]  = "Login successful"
-        redirect_to_stored
+        redirect_to attendees_path
       else
         flash[:warning] = "Login unsuccessful"
       end

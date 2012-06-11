@@ -2,12 +2,16 @@ class AttendeesController < ApplicationController
   # GET /attendees
   # GET /attendees.json
   def index
-    @attendees = Attendee.all
+	if session[:user] then
+		@attendees = Attendee.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @attendees }
-    end
+		respond_to do |format|
+		  format.html # index.html.erb
+		  format.json { render json: @attendees }
+		end
+	else
+		redirect_to('/login')
+	end
   end
 
   # GET /attendees/1

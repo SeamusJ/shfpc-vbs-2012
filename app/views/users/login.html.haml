@@ -1,0 +1,13 @@
+%h1 Login to SHFPC VBS 2012 Registration
+
+= form_tag '/login' do
+
+  = label :user, :login, 'Username'
+  = text_field :user, :login
+
+  = label :user, :password, 'Password'
+  = text_field :user, :password, {:type => 'password'}
+
+  = submit_tag 'Login'
+
+.errormsg= (flash[:warning] or flash[:message])
