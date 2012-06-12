@@ -1,17 +1,21 @@
 %p#notice= notice
 
 %p
-  %b First name:
-  = @attendee.first_name
+  %b Child's name:
+  = @attendee.child_name
 %p
-  %b Last name:
-  = @attendee.last_name
+  %b Address:
+  = @attendee.address
 %p
   %b Age:
   = @attendee.age
 %p
-  %b Gender:
-  = @attendee.gender
+  %b Birthday:
+  = @attendee.birth_date
+
+%p
+  %b Grade this fall:
+  = @attendee.grade
 %p
   %b Parent first name:
   = @attendee.parent_first_name
@@ -22,24 +26,33 @@
   %b Parent email:
   = @attendee.parent_email
 %p
-  %b Parent phone:
-  = @attendee.parent_phone
+  %b Parent home phone:
+  = @attendee.parent_phone_home
 %p
-  %b Parent email:
-  = @attendee.parent_email
+  %b Parent cell phone:
+  = @attendee.parent_phone_cell
 %p
-  %b Parent address 1:
-  = @attendee.parent_address_1
+  %b Parent work phone:
+  = @attendee.parent_phone_work
 %p
-  %b Parent address 2:
-  = @attendee.parent_address_2
+  %b Am I willing to assist?
+  = @attendee.willing_to_assist
 %p
-  %b Parent city:
-  = @attendee.parent_city
+  %b Emergency Contact/Phone:
+  = "#{@attendee.emergency_contact_name1}/#{@attendee.emergency_contact_phone1}"
 %p
-  %b Parent zip:
-  = @attendee.parent_zip
+  %b Emergency Contact/Phone:
+  = "#{@attendee.emergency_contact_name2}/#{@attendee.emergency_contact_phone2}"
+%p
+  %b Pickup Name/Relationship:
+  = "#{@attendee.pickup_name1}/#{@attendee.pickup_relationship1}"
+%p
+  %b Pickup Name/Relationship:
+  = "#{@attendee.pickup_name2}/#{@attendee.pickup_relationship2}"
+%p
+  %b Allergies/Medical information/Food Needs/Other Concerns:
+  = @attendee.other
 
-= link_to 'Edit', edit_attendee_path(@attendee)
+= (@user ? link_to('Edit', edit_attendee_path(@attendee)) : link_to('Register another child', new_attendee_path))
 \|
-= link_to 'Back', attendees_path
+= (@user ? link_to('Back', attendees_path) : '')

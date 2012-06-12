@@ -17,6 +17,7 @@ class AttendeesController < ApplicationController
   # GET /attendees/1
   # GET /attendees/1.json
   def show
+    @user = session[:user]
     @attendee = Attendee.find(params[:id])
 
     respond_to do |format|
@@ -28,6 +29,7 @@ class AttendeesController < ApplicationController
   # GET /attendees/new
   # GET /attendees/new.json
   def new
+    @user = session[:user]
     @attendee = Attendee.new
 
     respond_to do |format|
@@ -38,6 +40,7 @@ class AttendeesController < ApplicationController
 
   # GET /attendees/1/edit
   def edit
+    @user = session[:user]
     @attendee = Attendee.find(params[:id])
   end
 
@@ -48,7 +51,7 @@ class AttendeesController < ApplicationController
 
     respond_to do |format|
       if @attendee.save
-        format.html { redirect_to @attendee, notice: 'Attendee was successfully created.' }
+        format.html { redirect_to @attendee, notice: "#{@attendee.child_name} is registered for VBS!" }
         format.json { render json: @attendee, status: :created, location: @attendee }
       else
         format.html { render action: "new" }

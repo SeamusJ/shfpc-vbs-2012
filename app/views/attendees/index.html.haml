@@ -2,38 +2,46 @@
 
 %table
   %tr
-    %th First name
-    %th Last name
+    %th Child's name
+    %th Address
     %th Age
-    %th Gender
-    %th Parent first name
-    %th Parent last name
+    %th Birthdate
+    %th Grade
+    %th Parent First Name
+    %th Parent Last Name
     %th Parent email
-    %th Parent phone
-    %th Parent email
-    %th Parent address 1
-    %th Parent address 2
-    %th Parent city
-    %th Parent zip
+    %th Parent phone home
+    %th Parent phone work
+    %th Parent phone cell
+    %th Parent willing to assist
+    %th Emergency contact/Phone
+    %th Emergency contact/Phone
+    %th Pickup Name/Relationship
+    %th Pickup Name/Relationship
+    %th Pickup Name/Relationship
     %th
     %th
     %th
 
   - @attendees.each do |attendee|
     %tr
-      %td= attendee.first_name
-      %td= attendee.last_name
+      %td= attendee.child_name
+      %td= attendee.address
       %td= attendee.age
-      %td= attendee.gender
+      %td= attendee.birth_date
+      %td= attendee.grade
       %td= attendee.parent_first_name
       %td= attendee.parent_last_name
       %td= attendee.parent_email
-      %td= attendee.parent_phone
-      %td= attendee.parent_email
-      %td= attendee.parent_address_1
-      %td= attendee.parent_address_2
-      %td= attendee.parent_city
-      %td= attendee.parent_zip
+      %td= attendee.parent_phone_home
+      %td= attendee.parent_phone_work
+      %td= attendee.parent_phone_cell
+      %td= attendee.willing_to_assist
+      %td= "#{attendee.emergency_contact_name1}/#{attendee.emergency_contact_phone1}"
+      %td= "#{attendee.emergency_contact_name2}/#{attendee.emergency_contact_phone2}"
+      %td= "#{attendee.pickup_name1}/#{attendee.pickup_relationship1}"
+      %td= "#{attendee.pickup_name2}/#{attendee.pickup_relationship2}"
+      %td= "#{attendee.pickup_name3}/#{attendee.pickup_relationship3}"
       %td= link_to 'Show', attendee
       %td= link_to 'Edit', edit_attendee_path(attendee)
       %td= link_to 'Destroy', attendee, :confirm => 'Are you sure?', :method => :delete
