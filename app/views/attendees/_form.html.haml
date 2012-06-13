@@ -7,74 +7,72 @@
           %li= msg
 
   .field
-    = f.label :child_name 
+    %strong Basic Information
+  .field
+    = f.label :child_name, 'Child\'s Name:'
     = f.text_field :child_name
   .field
-    = f.label :address
+    = f.label :address, 'Address:'
     = f.text_field :address
   .field
-    = f.label :age
+    = f.label :age, 'Age:'
     = f.number_field :age
-  .field
-    = f.label :birth_date
+    = f.label :birth_date, 'Birth date:'
     = f.text_field :birth_date
-  .field
-    = f.label :grade
+    = f.label :grade, 'School Grade This Comming Fall:'
     = f.text_field :grade
   .field
-    = f.label :parent_first_name
-    = f.text_field :parent_first_name
+    %strong Parent's Information
   .field
-    = f.label :parent_last_name
+    = f.label :parent_first_name, 'Parent\'s First Name:'
+    = f.text_field :parent_first_name
+    = f.label :parent_last_name, 'Parent\'s Last Name:'
     = f.text_field :parent_last_name
   .field
-    = f.label :parent_email
-    = f.text_field :parent_email
-  .field
-    = f.label :parent_phone_home
+    = f.label :parent_phone_home, 'Parent\'s Phone: (Home)'
     = f.text_field :parent_phone_home
-  .field
-    = f.label :parent_phone_cell
+    = f.label :parent_phone_work, '(Work)'
+    = f.text_field :parent_phone_work
+    = f.label :parent_phone_cell, '(Cell)'
     = f.text_field :parent_phone_cell
   .field
-    = f.label :parent_phone_work
-    = f.text_field :parent_phone_work
+    = f.label :parent_email, 'Parent\'s E-Mail Address:'
+    = f.text_field :parent_email
   .field
-    = f.label :willing_to_assist
+    = f.label :willing_to_assist, 'If needed, are you willing to assist with VBS?'
     = f.text_field :willing_to_assist
   .field
-    = f.label :emergency_contact_name1
-    = f.text_field :emergency_contact_name1
+    %strong Emergency Contacts:
   .field
-    = f.label :emergency_contact_phone1
+    = f.label :emergency_contact_name1, 'Name:'
+    = f.text_field :emergency_contact_name1
+    = f.label :emergency_contact_phone1, 'Phone:'
     = f.text_field :emergency_contact_phone1
   .field
-    = f.label :emergency_contact_name2
+    = f.label :emergency_contact_name2, 'Name:'
     = f.text_field :emergency_contact_name2
-  .field
-    = f.label :emergency_contact_phone2
+    = f.label :emergency_contact_phone2, 'Phone:'
     = f.text_field :emergency_contact_phone2
   .field
-    = f.label :pickup_name1
-    = f.text_field :pickup_name1
+    %strong Names of persons with permission to pick up this child from VBS.
   .field
-    = f.label :pickup_relationship1
+    = f.label :pickup_name1, 'Name:'
+    = f.text_field :pickup_name1
+    = f.label :pickup_relationship1, 'Relationship:'
     = f.text_field :pickup_relationship1
   .field
-    = f.label :pickup_name2
+    = f.label :pickup_name2, 'Name:'
     = f.text_field :pickup_name2
-  .field
-    = f.label :pickup_relationship2
+    = f.label :pickup_relationship2, 'Relationship:'
     = f.text_field :pickup_relationship2
   .field
-    = f.label :pickup_name3
+    = f.label :pickup_name3, 'Name:'
     = f.text_field :pickup_name3
-  .field
-    = f.label :pickup_relationship3
+    = f.label :pickup_relationship3, 'Relationship:'
     = f.text_field :pickup_relationship3
   .field
-    = f.label :other, 'Allergies / Medical information / Food needs / Other concerns:'
+    %strong Allergies / Medical information / Food needs / Other concerns:
   .field
-    = f.text_area :other
+    = f.text_area :other, {:rows => "6"}
   .actions
     = f.submit 'Save'

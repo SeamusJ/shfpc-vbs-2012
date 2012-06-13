@@ -1,3 +1,9 @@
 // Place all the styles related to the Attendees controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+INPUT {border:1px solid black}
+TEXTAREA {border:1px solid black}
+#attendee_other {width: 100%}
+#attendee_address {width: 700px}
+#attendee_age {width: 50px}
+#attendee_birth_date {width: 100px}
