@@ -1,56 +1,71 @@
+%h1 Spring Hill First Presbyterian VBS 2012 Registration
 %p#notice= notice
 
 %p
-  %b Child's name:
-  = @attendee.child_name
+  %strong Basic Information
 %p
-  %b Address:
-  = @attendee.address
+  Child's name:
+  %u= @attendee.child_name
 %p
-  %b Age:
-  = @attendee.age
+  Address:
+  %u= @attendee.address
 %p
-  %b Birthday:
-  = @attendee.birth_date
-
+  Age:
+  %u= @attendee.age
+  Birth date:
+  %u= @attendee.birth_date
+  School Grade This Comming Fall:
+  %u= @attendee.grade
 %p
-  %b Grade this fall:
-  = @attendee.grade
+  %strong Parent's Information
 %p
-  %b Parent first name:
-  = @attendee.parent_first_name
+  Parent's name:
+  %u= "#{@attendee.parent_first_name} #{@attendee.parent_last_name}"
 %p
-  %b Parent last name:
-  = @attendee.parent_last_name
+  Parent's phone: (Home)
+  %u= @attendee.parent_phone_home
+  (Work)
+  %u= @attendee.parent_phone_cell
+  (Cell)
+  %u= @attendee.parent_phone_work
 %p
-  %b Parent email:
-  = @attendee.parent_email
+  Parent email:
+  %u= @attendee.parent_email
 %p
-  %b Parent home phone:
-  = @attendee.parent_phone_home
+  Am I willing to assist?
+  %u= @attendee.willing_to_assist
 %p
-  %b Parent cell phone:
-  = @attendee.parent_phone_cell
+  %strong Emergency Contacts:
 %p
-  %b Parent work phone:
-  = @attendee.parent_phone_work
+  Name:
+  %u= @attendee.emergency_contact_name1
+  Phone:
+  %u= @attendee.emergency_contact_phone1
 %p
-  %b Am I willing to assist?
-  = @attendee.willing_to_assist
+  Name:
+  %u= @attendee.emergency_contact_name2
+  Phone:
+  %u= @attendee.emergency_contact_phone2
 %p
-  %b Emergency Contact/Phone:
-  = "#{@attendee.emergency_contact_name1}/#{@attendee.emergency_contact_phone1}"
+  %strong Names of persons with permission to pick up this child from VBS:
 %p
-  %b Emergency Contact/Phone:
-  = "#{@attendee.emergency_contact_name2}/#{@attendee.emergency_contact_phone2}"
+  Name:
+  %u= @attendee.pickup_name1
+  Relationship:
+  %u= @attendee.pickup_relationship1
 %p
-  %b Pickup Name/Relationship:
-  = "#{@attendee.pickup_name1}/#{@attendee.pickup_relationship1}"
+  Name:
+  %u= @attendee.pickup_name2
+  Relationship:
+  %u= @attendee.pickup_relationship2
 %p
-  %b Pickup Name/Relationship:
-  = "#{@attendee.pickup_name2}/#{@attendee.pickup_relationship2}"
+  Name:
+  %u= @attendee.pickup_name3
+  Relationship:
+  %u= @attendee.pickup_relationship3
 %p
-  %b Allergies/Medical information/Food Needs/Other Concerns:
+  %strong Allergies/Medical information/Food Needs/Other Concerns:
+%p
   = @attendee.other
 
 = (@user ? link_to('Edit', edit_attendee_path(@attendee)) : link_to('Register another child', new_attendee_path))
