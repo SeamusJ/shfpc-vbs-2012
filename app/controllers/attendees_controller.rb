@@ -18,16 +18,16 @@ class AttendeesController < ApplicationController
   # GET /attendees/1.json
   def show
     @user = session[:user]
-	my_children = (session[:my_children] or [])
-	if (@user or (my_children.include?(params[:id].to_i))) then
-		@attendee = Attendee.find(params[:id])
-		respond_to do |format|
-		  format.html # show.html.erb
-		  format.json { render json: @attendee }
-		end
-	else
-		redirect_to('/')
-	end
+    my_children = (session[:my_children] or [])
+    if (@user or (my_children.include?(params[:id].to_i))) then
+      @attendee = Attendee.find(params[:id])
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @attendee }
+      end
+    else
+      redirect_to('/')
+    end
   end
 
   # GET /attendees/new
@@ -55,8 +55,8 @@ class AttendeesController < ApplicationController
 
     respond_to do |format|
       if @attendee.save
-		session[:my_children] = (session[:my_children] or []) + [@attendee.id]
-		puts "session[:my_children]=#{session[:my_children]}"
+        session[:my_children] = (session[:my_children] or []) + [@attendee.id]
+        puts "session[:my_children]=#{session[:my_children]}"
         format.html { redirect_to @attendee, notice: "#{@attendee.child_name} is registered for VBS!" }
         format.json { render json: @attendee, status: :created, location: @attendee }
       else
